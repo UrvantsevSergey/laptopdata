@@ -84,37 +84,46 @@ public class Main {
         if (ch_f == 1) {
             System.out.println("Введите объём ОЗУ (в ГБ): ");
             int ram = scanner.nextInt();
-            
             int minRam = Integer.MAX_VALUE; 
             int min_id = 0;
             for (Lp laptop : laptops) {
                 if (laptop.ram == ram) {
                     System.out.println("ID: " + laptop.id + " RAM: " + laptop.ram +"Гб");
                 }
-
-            //    else {
-            //         for (Lp elem : laptops) {
-            //             if (elem.ram < minRam) {
-            //                 minRam = elem.ram;
-            //                 min_id = elem.id;
-            //             }
-            //         }
-                //}
-             }
-            // System.out.println("Минимальный объем RAM: " + minRam + "Гб" + " ID: " + min_id);
+                else {
+                    for (Lp elem : laptops) {
+                        if (elem.ram < minRam) {
+                            minRam = elem.ram;
+                            min_id = elem.id;
+                        }
+                    }
+                }
+            }
+            System.out.println("Минимальный объем RAM: " + minRam + "Гб" + " ID: " + min_id);
             
             
         }
-        // if (ch_f == 2) {
-        //     System.out.println("Введите объём ЖД (в ГБ): ");
-        //     int hdd = scanner.nextInt();
-        //     System.out.println("Найденные ноутбуки с объемом ЖД " + hdd + " ГБ:");
-        //     for (Lp laptop : laptops) {
-        //         if (laptop.hd_v == hdd) {
-        //             System.out.println("ID: " + laptop.id + " ЖД: " + laptop.hd_v);
+        if (ch_f == 2) {
+            System.out.println("Введите объём ЖД (в ГБ): ");
+            int hdd = scanner.nextInt();
+            System.out.println("Найденные ноутбуки с объемом ЖД " + hdd + " ГБ:");
+            int minHdd = Integer.MAX_VALUE; 
+            int mn_id = 0;
+            for (Lp laptop : laptops) {
+                if (laptop.hd_v == hdd) {
+                    System.out.println("ID: " + laptop.id + " ЖД: " + laptop.hd_v + "Гб");
+                }
+                else {
+                    for (Lp elem : laptops) {
+                        if (elem.hd_v < minHdd) {
+                            minHdd = elem.hd_v;
+                            mn_id = elem.id;
+                        }
+                    }
                 }
             }
-//         }
-//         System.out.println("Спасибо за внимание!");
-//     }
-// }
+            System.out.println("Минимальный объем ЖД: " + minHdd + "Гб" + " ID: " + mn_id);
+         }
+         System.out.println("Спасибо за внимание!");
+     }
+}
